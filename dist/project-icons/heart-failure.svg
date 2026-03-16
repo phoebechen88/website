@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-labelledby="title desc">
+  <title id="title">Heart failure prediction icon</title>
+  <desc id="desc">A heart with an ECG line.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffeef1" />
+      <stop offset="100%" stop-color="#ffd9e2" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="18" fill="url(#bg)" />
+  <path d="M160 158 C130 130 90 104 90 74 C90 54 106 38 126 38 C140 38 152 45 160 56 C168 45 180 38 194 38 C214 38 230 54 230 74 C230 104 190 130 160 158 Z" fill="#da4f74" stroke="#9b2f4c" stroke-width="4" />
+  <path d="M44 110 H110 L128 84 L146 126 L162 98 L184 110 H276" fill="none" stroke="#7e1f39" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

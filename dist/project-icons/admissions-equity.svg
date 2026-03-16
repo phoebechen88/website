@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-labelledby="title desc">
+  <title id="title">Admissions equity modeling icon</title>
+  <desc id="desc">A document and a balance scale.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6f1ff" />
+      <stop offset="100%" stop-color="#e7ddff" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="18" fill="url(#bg)" />
+  <rect x="48" y="34" width="128" height="132" rx="10" fill="#ffffff" stroke="#6f5c9f" stroke-width="3" />
+  <line x1="66" y1="66" x2="158" y2="66" stroke="#c5b8ea" stroke-width="6" stroke-linecap="round" />
+  <line x1="66" y1="90" x2="146" y2="90" stroke="#d5caf2" stroke-width="6" stroke-linecap="round" />
+  <line x1="66" y1="114" x2="136" y2="114" stroke="#e0d7f7" stroke-width="6" stroke-linecap="round" />
+  <line x1="224" y1="58" x2="224" y2="128" stroke="#5c468f" stroke-width="6" stroke-linecap="round" />
+  <line x1="194" y1="72" x2="254" y2="72" stroke="#5c468f" stroke-width="6" stroke-linecap="round" />
+  <line x1="204" y1="72" x2="188" y2="104" stroke="#5c468f" stroke-width="4" />
+  <line x1="244" y1="72" x2="260" y2="104" stroke="#5c468f" stroke-width="4" />
+  <path d="M176 104 H200 C197 114 188 121 176 121 C164 121 155 114 152 104 Z" fill="#9c87d0" />
+  <path d="M248 104 H272 C269 114 260 121 248 121 C236 121 227 114 224 104 Z" fill="#9c87d0" />
+  <rect x="204" y="128" width="40" height="10" rx="5" fill="#5c468f" />
+</svg>
