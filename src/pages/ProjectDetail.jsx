@@ -19,6 +19,20 @@ export default function ProjectDetail(){
     setShowUnderConstruction(true)
   }
 
+  React.useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape' && showUnderConstruction) {
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur()
+        }
+        setShowUnderConstruction(false)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [showUnderConstruction])
+
   const renderDetailedContent = () => {
     if (project?.id === 'proj-1') {
       return (

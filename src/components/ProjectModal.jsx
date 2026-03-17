@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import UnderConstructionPopup from './UnderConstructionPopup'
 
 export default function ProjectModal({project, onClose}){
+  const navigate = useNavigate()
   const [showUnderConstruction, setShowUnderConstruction] = useState(false)
   const hasRepoLink = /^https?:\/\//i.test(project?.repoLink || '')
   const assetBase = import.meta.env.BASE_URL || '/'
@@ -48,6 +50,10 @@ export default function ProjectModal({project, onClose}){
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === 'Escape') {
+        if (showUnderConstruction) {
+          setShowUnderConstruction(false)
+          return
+        }
         if (document.activeElement instanceof HTMLElement) {
           document.activeElement.blur()
         }
@@ -56,7 +62,7 @@ export default function ProjectModal({project, onClose}){
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [onClose])
+  }, [onClose, showUnderConstruction])
 
   if(!project) return null
   return (
@@ -78,6 +84,7 @@ export default function ProjectModal({project, onClose}){
                 ? <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="cta cta-small project-modal-btn">Repository</a>
                 : <a href="#" onClick={handlePopupClick} className="cta cta-small project-modal-btn">Repository</a>}
               {project.link && <a href={project.link} onClick={handlePopupClick} className="cta cta-small project-modal-btn">Report</a>}
+              <button onClick={() => {onClose(); navigate(`/projects/${project.id}`)}} className="cta cta-small project-modal-btn" style={{marginLeft:'auto'}}>View Full Project</button>
             </div>
           </div>
         </div>

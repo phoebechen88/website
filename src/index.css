@@ -184,6 +184,14 @@ header.site-header{background:transparent;padding:18px 0}
   letter-spacing:0.01em;
 }
 
+.contact-top-row .contact-btn{
+  min-width:78px;
+  min-height:32px;
+  padding:7px 10px;
+  font-size:0.78rem;
+  border-radius:8px;
+}
+
 .contact-form .contact-btn:hover,
 .contact-form .contact-btn:focus-visible{
   background:var(--accent-2);
@@ -261,6 +269,45 @@ header.site-header{background:transparent;padding:18px 0}
 .project-actions .link-group{display:flex;gap:12px;}
 
 .modal-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+.graphics-grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:18px;margin-top:18px}
+.graphics-card{background:var(--card);border-radius:12px;box-shadow:0 6px 20px rgba(15,23,32,0.05);overflow:hidden;display:flex;flex-direction:column}
+.graphics-media{background:#e9eef8;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.graphics-image{width:100%;height:100%;display:block;object-fit:cover;background:#f5f7fb}
+.graphics-card-banner .graphics-image{object-fit:contain;object-position:center center}
+.graphics-pdf{width:100%;height:100%;border:none;display:block;background:#fff}
+.graphics-media.image-pending .graphics-image{opacity:0;visibility:hidden;filter:blur(4px);transform:scale(1.01)}
+.graphics-media.image-loaded .graphics-image{opacity:1;visibility:visible;filter:blur(0);transform:scale(1)}
+.graphics-body{padding:12px 14px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.graphics-body h3{margin:0;font-size:1rem}
+.graphics-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.graphics-open-btn{width:34px;height:34px;padding:0;display:inline-flex;align-items:center;justify-content:center;border:none;border-radius:8px;background:#fff;color:var(--accent-2);cursor:pointer;transition:transform 0.2s ease,background 0.2s ease,color 0.2s ease}
+.graphics-open-btn:hover,.graphics-open-btn:focus-visible{background:#fff;color:var(--accent-2);transform:translateY(-1px)}
+.graphics-open-btn svg{width:18px;height:18px;display:block}
+.graphics-actions .graphics-pdf-btn{
+  min-width:56px;
+  min-height:22px;
+  padding:3px 6px;
+  font-size:0.56rem;
+  border-radius:6px;
+  letter-spacing:0.01em;
+}
+
+.graphics-modal-overlay{position:fixed;inset:0;background:rgba(12,16,20,0.62);display:flex;align-items:center;justify-content:center;z-index:1500;padding:18px}
+.graphics-modal{width:min(1080px, 100%);max-height:92vh;background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(2,6,23,0.28);display:flex;flex-direction:column;overflow:hidden}
+.graphics-modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(15,23,32,0.08)}
+.graphics-modal-header h3{margin:0;font-size:1.05rem}
+.graphics-modal-content{padding:12px;background:#f5f7fb;display:flex;align-items:center;justify-content:center;min-height:320px}
+.graphics-modal-image{max-width:100%;max-height:74vh;display:block;object-fit:contain}
+.graphics-modal-pdf{width:100%;height:74vh;border:none;background:#fff}
+
+@media(min-width:720px){
+  .graphics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(min-width:1024px){
+  .graphics-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 
 .card .cta-small,.project-actions .cta,.modal-actions .cta,.link-grid .cta{border-radius:8px;}
 
@@ -375,6 +422,17 @@ header.site-header{background:transparent;padding:18px 0}
 .link-grid .cta:nth-child(2){background:#bed0ef;}
 .link-grid .cta:nth-child(3){background:#bed0ef;}
 
+/* Contact page: keep link-grid buttons compact */
+.contact-top-row .link-grid .contact-btn.contact-btn{
+  min-width:104px !important;
+  min-height:54px !important;
+  padding:12px 14px !important;
+  font-size:1.15rem !important;
+  line-height:1.15 !important;
+  letter-spacing:0.01em;
+  border-radius:10px;
+}
+
 /* Ensure cta buttons never get underline */
 .cta, .cta:hover, .cta:focus-visible {text-decoration:none !important;}
 
@@ -404,8 +462,8 @@ footer .container{
 .hero-small-image img{width:100%;height:100%;object-fit:cover}
 
 .image-frame{background:linear-gradient(135deg,#f3f4f7,#e8ebf1)}
-.image-frame img{opacity:0}
-.image-frame.image-loaded img{opacity:1}
+.image-frame img{opacity:0;visibility:hidden;filter:blur(4px);transform:scale(1.01);transition:opacity 0.42s ease,filter 0.42s ease,transform 0.42s ease}
+.image-frame.image-loaded img{opacity:1;visibility:visible;filter:blur(0);transform:scale(1)}
 
 .skills-grid{columns:2;column-gap:24px;list-style:disc; padding-left:18px;}
 .skills-grid li{break-inside:avoid-column;line-height:1.7;margin-bottom:8px;}
