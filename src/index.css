@@ -74,11 +74,15 @@ header.site-header{background:transparent;padding:18px 0}
   .nav{display:none}
   .hamburger-btn{display:flex}
   .home-bio-row{flex-direction:column !important;gap:20px !important}
-  .home-bio-row .bio-text{flex:auto;min-width:auto;max-width:100%}
+  .home-bio-row .bio-text{flex:auto;min-width:0 !important;max-width:100%}
   .hero-small-image.mini-profile{flex:auto;max-width:180px;width:180px;height:180px;align-self:center}
   .section-card{padding:16px}
   .container{padding:0 12px}
   .hero p{max-width:100%}
+  .two-col .about-image{width:100%;height:280px}
+  .link-grid{grid-template-columns:1fr}
+  .link-grid .cta{min-width:100%;min-height:40px;padding:8px 12px;font-size:0.85rem}
+  .contact-top-row .link-grid .contact-btn.contact-btn{min-width:100% !important;min-height:40px !important;padding:8px 12px !important;font-size:0.85rem !important}
 }
 
 /* CTA buttons */
