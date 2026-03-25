@@ -9,11 +9,11 @@
   </defs>
   <rect width="320" height="200" rx="18" fill="url(#bg)" />
   <rect x="48" y="44" width="154" height="122" rx="10" fill="#ffffff" stroke="#946347" stroke-width="3" />
-  <line x1="72" y1="144" x2="176" y2="144" stroke="#c89b7e" stroke-width="4" />
-  <rect x="78" y="112" width="18" height="32" rx="3" fill="#d1916f" />
-  <rect x="106" y="92" width="18" height="52" rx="3" fill="#bb7c5d" />
-  <rect x="134" y="78" width="18" height="66" rx="3" fill="#9f654d" />
-  <rect x="162" y="100" width="18" height="44" rx="3" fill="#7f4f3e" />
-  <path d="M236 48 L274 62 V96 C274 122 258 144 236 154 C214 144 198 122 198 96 V62 Z" fill="#8f4e3e" />
+  <line x1="72" y1="144" x2="178" y2="144" stroke="#c89b7e" stroke-width="4" />
+  <rect x="74" y="112" width="18" height="32" rx="3" fill="#d1916f" />
+  <rect x="102" y="92" width="18" height="52" rx="3" fill="#bb7c5d" />
+  <rect x="130" y="78" width="18" height="66" rx="3" fill="#9f654d" />
+  <rect x="158" y="100" width="18" height="44" rx="3" fill="#7f4f3e" />
+  <path d="M236 48 L277 62 V96 C277 122 261 144 236 154 C211 144 195 122 195 96 V62 Z" fill="#8f4e3e" />
   <path d="M218 100 L231 113 L256 86" fill="none" stroke="#fff4e8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
