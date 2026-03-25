@@ -14,12 +14,13 @@ export default function About(){
         <div className="about-body">
           <p className="muted">Hello! I'm Phoebe Chen, a Statistics &amp; Data Science student at UCLA with a minor in Data Science Engineering. I'm passionate about building data-driven models that uncover meaningful patterns in complex datasets. My work spans statistical modeling, machine learning, and deep learning-from analyzing large-scale public datasets to developing neural networks. I enjoy turning messy data into clear insights and reproducible analyses using tools like Python, R, and PyTorch.</p>
           <h3>I like...</h3>
-          <ul>
+          <ul className="skills-grid">
             <li>Cats</li>
-            <li>Piano</li>
-            <li>Mechanical keyboards</li>
+            <li>Playing piano</li>
+            <li>Building mechanical keyboards</li>
             <li>Graphic design, drawing, and animation</li>
             <li>Pink</li>
+            <li>Learning foreign languages</li>
           </ul>
           <h3>Education</h3>
           <ul>
