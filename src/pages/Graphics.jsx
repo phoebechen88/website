@@ -10,6 +10,7 @@ import springBanquetGraphic from '../../Graphics/Spring Banquet Graphic.png'
 import tourOfWestwood from '../../Graphics/Tour of Westwood.png'
 import winterRetreat from '../../Graphics/Winter Retreat.png'
 import springProgramPdf from '../../Graphics/Spring Program.pdf'
+import banquetProgramPdf from '../../Graphics/Program.pdf'
 
 const graphicItems = [
   { type: 'image', title: 'Santa Monica Evangelism', src: santaMonicaEvangelism, alt: 'Santa Monica Evangelism event graphic' },
@@ -21,7 +22,8 @@ const graphicItems = [
   { type: 'image', title: 'A Night of Good News', src: nightOfGoodNews, alt: 'Night of Good News event graphic' },
   { type: 'image', title: 'Spring Banquet Banner', src: springBanquetBanner, alt: 'Spring banquet banner design' },
   { type: 'image', title: 'Broomball', src: broomball, alt: 'Broomball graphic design poster' },
-  { type: 'pdf', title: 'Spring Banquet Program', src: springProgramPdf, alt: 'Spring Banquet Program PDF' }
+  { type: 'pdf', title: 'Spring Banquet Program', src: banquetProgramPdf, alt: 'Spring Banquet Program PDF' },
+  { type: 'pdf', title: 'Spring Retreat Booklet', src: springProgramPdf, alt: 'Spring Retreat Booklet PDF' }
 ]
 
 export default function Graphics() {
