@@ -21,7 +21,7 @@ const graphicItems = [
   { type: 'image', title: 'A Night of Good News', src: nightOfGoodNews, alt: 'Night of Good News event graphic' },
   { type: 'image', title: 'Spring Banquet Banner', src: springBanquetBanner, alt: 'Spring banquet banner design' },
   { type: 'image', title: 'Broomball', src: broomball, alt: 'Broomball graphic design poster' },
-  { type: 'pdf', title: 'Spring Retreat Program', src: springProgramPdf, alt: 'Spring Program PDF preview' }
+  { type: 'pdf', title: 'Spring Banquet Program', src: springProgramPdf, alt: 'Spring Banquet Program PDF' }
 ]
 
 export default function Graphics() {
