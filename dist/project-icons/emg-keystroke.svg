@@ -10,13 +10,13 @@
   <rect width="320" height="200" rx="18" fill="url(#bg)" />
   <rect x="54" y="92" width="212" height="74" rx="12" fill="#ffffff" stroke="#5a6e8f" stroke-width="3" />
   <g fill="#9eb4d9">
-    <rect x="70" y="108" width="22" height="14" rx="3" />
-    <rect x="98" y="108" width="22" height="14" rx="3" />
-    <rect x="126" y="108" width="22" height="14" rx="3" />
-    <rect x="154" y="108" width="22" height="14" rx="3" />
-    <rect x="182" y="108" width="22" height="14" rx="3" />
-    <rect x="210" y="108" width="22" height="14" rx="3" />
-    <rect x="84" y="128" width="148" height="22" rx="5" />
+    <rect x="79" y="108" width="22" height="14" rx="3" />
+    <rect x="107" y="108" width="22" height="14" rx="3" />
+    <rect x="135" y="108" width="22" height="14" rx="3" />
+    <rect x="163" y="108" width="22" height="14" rx="3" />
+    <rect x="191" y="108" width="22" height="14" rx="3" />
+    <rect x="219" y="108" width="22" height="14" rx="3" />
+    <rect x="93" y="128" width="148" height="22" rx="5" />
   </g>
   <path d="M36 70 H78 L94 44 L114 92 L132 60 L148 70 H284" fill="none" stroke="#2f4d78" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
 </svg>

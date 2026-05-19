@@ -306,6 +306,7 @@ header.site-header{background:transparent;padding:18px 0}
 .graphics-card{background:var(--card);border-radius:12px;box-shadow:0 6px 20px rgba(15,23,32,0.05);overflow:hidden;display:flex;flex-direction:column}
 .graphics-media{background:#e9eef8;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .graphics-image{width:100%;height:100%;display:block;object-fit:cover;background:#f5f7fb}
+.graphics-video-thumbnail{width:100%;height:auto;object-fit:contain;display:block}
 .graphics-card-banner .graphics-image{object-fit:contain;object-position:center center}
 .graphics-pdf{width:100%;height:100%;border:none;display:block;background:#fff}
 .graphics-media.image-pending .graphics-image{opacity:0;visibility:hidden;filter:blur(4px);transform:scale(1.01)}
@@ -324,14 +325,32 @@ header.site-header{background:transparent;padding:18px 0}
   border-radius:6px;
   letter-spacing:0.01em;
 }
+.graphics-collection-card{cursor:pointer;transition:transform 0.2s ease,box-shadow 0.2s ease}
+.graphics-collection-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,23,32,0.12)}
+.graphics-collection-preview{position:relative;overflow:hidden}
+.graphics-collection-preview img{filter:brightness(0.5);transition:filter 0.2s ease}
+.graphics-collection-preview:hover img{filter:brightness(0.6)}
+.graphics-collection-preview .graphics-image{object-fit:contain;object-position:center center}
+.graphics-collection-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6));opacity:1}
+.graphics-collection-count{color:#fff;font-weight:800;font-size:1.4rem;text-shadow:0 2px 6px rgba(0,0,0,0.8);z-index:1}
+.graphics-collection-modal{max-width:1200px}
+.graphics-collection-grid-modal{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;padding:20px;background:#f5f7fb;max-height:70vh;overflow-y:auto}
+.graphics-collection-item{cursor:pointer;border-radius:10px;background:#fff;overflow:hidden;transition:transform 0.2s ease,box-shadow 0.2s ease}
+.graphics-collection-item:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,23,32,0.1)}
+.graphics-collection-item .graphics-media{aspect-ratio:1/1}
+.graphics-collection-item .graphics-video-thumbnail{width:100%;height:auto;object-fit:contain;display:block;margin:0 auto}
 
-.graphics-modal-overlay{position:fixed;inset:0;background:rgba(12,16,20,0.62);display:flex;align-items:center;justify-content:center;z-index:1500;padding:18px}
-.graphics-modal{width:min(1080px, 100%);max-height:92vh;background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(2,6,23,0.28);display:flex;flex-direction:column;overflow:hidden}
-.graphics-modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(15,23,32,0.08)}
-.graphics-modal-header h3{margin:0;font-size:1.05rem}
-.graphics-modal-content{padding:12px;background:#f5f7fb;display:flex;align-items:center;justify-content:center;min-height:320px}
-.graphics-modal-image{max-width:100%;max-height:74vh;display:block;object-fit:contain}
-.graphics-modal-pdf{width:100%;height:74vh;border:none;background:#fff}
+/* For link/video cards inside collection modal, allow the media container to size to content so thumbnails can fill width */
+.graphics-collection-item.graphics-card-link .graphics-media{aspect-ratio:auto;height:auto;padding:0;background:transparent}
+.graphics-collection-item.graphics-card-link .graphics-video-thumbnail{width:100%;height:auto;display:block}
+.graphics-collection-item .graphics-body{padding:8px 10px}
+.graphics-collection-item h4{margin:0;font-size:0.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.graphics-card-link .graphics-media{aspect-ratio:auto;height:60px;background:linear-gradient(135deg,rgba(91,107,211,0.08),rgba(93,130,200,0.08))}
+.graphics-link-card{display:flex;align-items:center;justify-content:center;width:100%;height:100%;text-decoration:none;color:var(--accent-2);font-weight:600;font-size:0.95rem;transition:opacity 0.2s ease}
+.graphics-link-card:hover{opacity:0.8}
+.graphics-card-link .graphics-body{padding:10px 12px;flex-direction:row-reverse}
+.graphics-card-link .graphics-actions{margin:0}
+.graphics-actions .graphics-link-btn{min-width:68px;min-height:28px;padding:4px 8px;font-size:0.7rem}
 
 @media(min-width:720px){
   .graphics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -340,6 +359,19 @@ header.site-header{background:transparent;padding:18px 0}
 @media(min-width:1024px){
   .graphics-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+@media(min-width:1024px){
+  .graphics-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+.graphics-modal-overlay{position:fixed;inset:0;background:rgba(12,16,20,0.62);display:flex;align-items:center;justify-content:center;z-index:1500;padding:18px}
+.graphics-modal-overlay:has(.graphics-collection-modal){z-index:1400}
+.graphics-modal{width:min(1080px, 100%);max-height:92vh;background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(2,6,23,0.28);display:flex;flex-direction:column;overflow:hidden}
+.graphics-modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(15,23,32,0.08)}
+.graphics-modal-header h3{margin:0;font-size:1.05rem}
+.graphics-modal-content{padding:12px;background:#f5f7fb;display:flex;align-items:center;justify-content:center;min-height:320px}
+.graphics-modal-image{max-width:100%;max-height:74vh;display:block;object-fit:contain}
+.graphics-modal-pdf{width:100%;height:74vh;border:none;background:#fff}
 
 .card .cta-small,.project-actions .cta,.modal-actions .cta,.link-grid .cta{border-radius:8px;}
 

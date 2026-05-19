@@ -9,17 +9,21 @@
   </defs>
   <rect width="320" height="200" rx="18" fill="url(#bg)" />
   <rect x="46" y="84" width="66" height="82" rx="6" fill="#4d8b76" />
-  <rect x="78" y="66" width="34" height="100" rx="6" fill="#39715f" />
+  <rect x="84" y="66" width="29" height="100" rx="6" fill="#39715f" />
   <rect x="206" y="72" width="66" height="94" rx="6" fill="#5b9d87" />
   <g fill="#d8efe7">
-    <rect x="58" y="96" width="10" height="10" rx="2" />
-    <rect x="74" y="96" width="10" height="10" rx="2" />
-    <rect x="58" y="112" width="10" height="10" rx="2" />
-    <rect x="74" y="112" width="10" height="10" rx="2" />
-    <rect x="218" y="86" width="10" height="10" rx="2" />
-    <rect x="234" y="86" width="10" height="10" rx="2" />
-    <rect x="218" y="102" width="10" height="10" rx="2" />
-    <rect x="234" y="102" width="10" height="10" rx="2" />
+    <g transform="translate(66 109) scale(0.8) translate(-71 -109)">
+      <rect x="58" y="96" width="10" height="10" rx="2" />
+      <rect x="74" y="96" width="10" height="10" rx="2" />
+      <rect x="58" y="112" width="10" height="10" rx="2" />
+      <rect x="74" y="112" width="10" height="10" rx="2" />
+    </g>
+    <rect x="238" y="82" width="10" height="10" rx="2" />
+    <rect x="252" y="82" width="10" height="10" rx="2" />
+    <rect x="238" y="96" width="10" height="10" rx="2" />
+    <rect x="252" y="96" width="10" height="10" rx="2" />
+    <rect x="238" y="110" width="10" height="10" rx="2" />
+    <rect x="252" y="110" width="10" height="10" rx="2" />
   </g>
   <path d="M122 110 H196" stroke="#2f6757" stroke-width="8" stroke-linecap="round" />
   <path d="M182 96 L198 110 L182 124" fill="none" stroke="#2f6757" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
