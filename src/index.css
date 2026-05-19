@@ -338,19 +338,20 @@ header.site-header{background:transparent;padding:18px 0}
 .graphics-collection-item{cursor:pointer;border-radius:10px;background:#fff;overflow:hidden;transition:transform 0.2s ease,box-shadow 0.2s ease}
 .graphics-collection-item:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,23,32,0.1)}
 .graphics-collection-item .graphics-media{aspect-ratio:1/1}
+.graphics-collection-item .graphics-media .graphics-image{width:100%;height:100%;object-fit:contain;display:block}
 .graphics-collection-item .graphics-video-thumbnail{width:100%;height:auto;object-fit:contain;display:block;margin:0 auto}
 
 /* For link/video cards inside collection modal, allow the media container to size to content so thumbnails can fill width */
-.graphics-collection-item.graphics-card-link .graphics-media{aspect-ratio:auto;height:auto;padding:0;background:transparent}
+.graphics-collection-item.graphics-card-link .graphics-media{aspect-ratio:auto;height:auto;padding:0;background:transparent;min-height:130px}
 .graphics-collection-item.graphics-card-link .graphics-video-thumbnail{width:100%;height:auto;display:block}
 .graphics-collection-item .graphics-body{padding:8px 10px}
 .graphics-collection-item h4{margin:0;font-size:0.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.graphics-card-link .graphics-media{aspect-ratio:auto;height:60px;background:linear-gradient(135deg,rgba(91,107,211,0.08),rgba(93,130,200,0.08))}
+.graphics-card-link .graphics-media{aspect-ratio:auto;height:auto;min-height:130px;background:linear-gradient(135deg,rgba(91,107,211,0.08),rgba(93,130,200,0.08))}
 .graphics-link-card{display:flex;align-items:center;justify-content:center;width:100%;height:100%;text-decoration:none;color:var(--accent-2);font-weight:600;font-size:0.95rem;transition:opacity 0.2s ease}
 .graphics-link-card:hover{opacity:0.8}
 .graphics-card-link .graphics-body{padding:10px 12px;flex-direction:row-reverse}
 .graphics-card-link .graphics-actions{margin:0}
-.graphics-actions .graphics-link-btn{min-width:68px;min-height:28px;padding:4px 8px;font-size:0.7rem}
+.graphics-actions .graphics-link-btn{min-width:68px;min-height:28px;padding:4px 10px;font-size:0.7rem;display:inline-flex;align-items:center;justify-content:center;text-align:center;white-space:normal}
 
 @media(min-width:720px){
   .graphics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
