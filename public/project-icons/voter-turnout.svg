@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="256" height="256">
+  <rect width="120" height="120" rx="14" fill="#ffffff"/>
+  <!-- ballot box -->
+  <g transform="translate(20,20)">
+    <rect x="0" y="28" width="80" height="44" rx="6" fill="#f6f8ff" stroke="#2030c8" stroke-width="2"/>
+    <rect x="18" y="14" width="44" height="18" rx="3" fill="#ffffff" stroke="#2030c8" stroke-width="1.6"/>
+    <path d="M30 19l8 8 16-16" stroke="#2030c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- slot -->
+    <rect x="34" y="8" width="12" height="4" rx="1" fill="#2030c8"/>
+  </g>
+  <!-- ballot peeking out -->
+  <g transform="translate(26,8)">
+    <rect x="0" y="0" width="40" height="16" rx="2" fill="#fffefc" stroke="#2030c8" stroke-width="1"/>
+    <rect x="4" y="4" width="6" height="6" rx="1" fill="#2030c8"/>
+    <path d="M12 7l4 4 8-10" stroke="#2030c8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <!-- MA label and Quincy dot -->
+  <text x="76" y="96" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#2030c8" font-weight="700">MA</text>
+  <circle cx="88" cy="86" r="3" fill="#e94b35" />
+</svg>

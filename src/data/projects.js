@@ -1,5 +1,25 @@
 const projects = [
   {
+    id: 'proj-8',
+    title: 'Voter Turnout Analysis',
+    description: 'Analyzed voter turnout trends in Quincy, MA, using a case study and a large voter demographics dataset, to investigate how to incentivize voter participation.',
+    tags: ['Causal Analysis','Policy','Survey Data'],
+    image: '/project-icons/voter-turnout.svg',
+    imageAlt: 'Massachusetts map with ballots icon',
+    repoLink: '#',
+    link: '#'
+  },
+  {
+    id: 'proj-7',
+    title: 'Causal Inference in Health Data',
+    description: 'TBD',
+    tags: ['Causal Inference','Health Data'],
+    image: '/project-icons/causal-health.svg',
+    imageAlt: 'Medical cross with causal graph icon',
+    repoLink: '#',
+    link: '#'
+  },
+  {
     id: 'proj-1',
     title: 'EMG-Based Keystroke Decoding',
     description: 'Designed a CNN-BiGRU pipeline in PyTorch for EMG-based character decoding.',
@@ -56,16 +76,6 @@ const projects = [
     tags: ['Regression','Housing'],
     image: '/project-icons/housing-regression.svg',
     imageAlt: 'House and trend line icon',
-    repoLink: '#',
-    link: '#'
-  },
-  {
-    id: 'proj-7',
-    title: 'Causal Inference in Health Data',
-    description: 'TBD',
-    tags: ['Causal Inference','Health Data'],
-    image: '/project-icons/causal-health.svg',
-    imageAlt: 'Medical cross with causal graph icon',
     repoLink: '#',
     link: '#'
   }

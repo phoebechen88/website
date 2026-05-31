@@ -13,7 +13,6 @@ import slide1 from '../../Graphics/Spring Banquet Slide 1.png'
 import slide15 from '../../Graphics/Spring Banquet Slide 15.png'
 import slide84 from '../../Graphics/Slide 84.png'
 import slide86 from '../../Graphics/Spring Banquet Slide 86.png'
-import slide94 from '../../Graphics/Spring Banquet Slide 94.png'
 import slide96 from '../../Graphics/Slide 96.png'
 import slide97 from '../../Graphics/Slide 97.png'
 import slide202 from '../../Graphics/Spring Banquet Slide 202.png'
@@ -34,7 +33,6 @@ const graphicItems = [
   { type: 'image', category: 'spring-banquet', title: 'Slide 15', src: slide15, alt: 'Spring banquet slide 15' },
   { type: 'image', category: 'spring-banquet', title: 'Slide 84', src: slide84, alt: 'Spring banquet slide 84' },
   { type: 'image', category: 'spring-banquet', title: 'Slide 86', src: slide86, alt: 'Spring banquet slide 86' },
-  { type: 'image', category: 'spring-banquet', title: 'Slide 94', src: slide94, alt: 'Spring banquet slide 94' },
   { type: 'image', category: 'spring-banquet', title: 'Slide 96', src: slide96, alt: 'Spring banquet slide 96' },
   { type: 'image', category: 'spring-banquet', title: 'Slide 97', src: slide97, alt: 'Spring banquet slide 97' },
   { type: 'image', category: 'spring-banquet', title: 'Slide 202', src: slide202, alt: 'Spring banquet slide 202' },
@@ -74,6 +72,11 @@ export default function Graphics() {
     setActiveCollection(null)
   }
 
+  const openVideoPlayer = (item) => {
+    const id = item.href.split('/').pop()
+    setActiveGraphic({ type: 'video', title: item.title, src: `https://www.youtube.com/embed/${id}?autoplay=1` })
+  }
+
   const markImageLoaded = (title) => {
     setLoadedImages((prev) => {
       if (prev[title]) return prev
@@ -82,38 +85,32 @@ export default function Graphics() {
   }
 
   const renderCard = (item, index) => (
-    <article className={`graphics-card fade-item ${item.title === 'Spring Banquet Banner' ? 'graphics-card-banner' : ''} ${item.type === 'link' ? 'graphics-card-link' : ''}`} key={item.title} style={{ transitionDelay: `${index * 40}ms` }}>
+    <article
+      className={`graphics-card fade-item ${item.title === 'Spring Banquet Banner' ? 'graphics-card-banner' : ''} ${item.type === 'link' ? 'graphics-card-link' : ''}`}
+      key={item.title}
+      style={{ transitionDelay: `${index * 40}ms`, cursor: item.type !== 'link' ? 'pointer' : 'default' }}
+      onClick={() => { if (item.type !== 'link') setActiveGraphic(item) }}
+    >
       <div className={`graphics-media image-frame ${loadedImages[item.title] ? 'image-loaded' : 'image-pending'}`}>
         {item.type === 'image' ? (
           <img src={item.src} alt={item.alt} loading="lazy" className="graphics-image" onLoad={() => markImageLoaded(item.title)} />
         ) : item.type === 'pdf' ? (
           <iframe title={item.title} src={item.src} className="graphics-pdf" />
         ) : item.type === 'link' ? (
-          <a href={item.href} target="_blank" rel="noopener noreferrer" className="graphics-link-card">
-            <span>▶ {item.title}</span>
-          </a>
+          <img src={`https://img.youtube.com/vi/${item.href.split('/').pop()}/maxresdefault.jpg`} alt={item.alt} className="graphics-image graphics-video-thumbnail" loading="lazy" onLoad={() => markImageLoaded(item.title)} />
         ) : null}
       </div>
       <div className="graphics-body">
         <h3>{item.title}</h3>
         <div className="graphics-actions">
-          {item.type !== 'link' && (
-            <button className="graphics-open-btn" onClick={() => setActiveGraphic(item)} aria-label={`Open larger view of ${item.title}`} title="Bigger view">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <ellipse cx="12" cy="12" rx="9" ry="5.8" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                <circle cx="12" cy="12" r="3.9" fill="currentColor" />
-                <circle cx="13.4" cy="10.7" r="1" fill="#fff" />
-              </svg>
-            </button>
-          )}
-          {item.type === 'link' && (
-            <a href={item.href} target="_blank" rel="noopener noreferrer" className="cta cta-small project-main-btn graphics-link-btn">
-              Watch Video
+          {item.type === 'pdf' && (
+            <a href={item.src} target="_blank" rel="noopener noreferrer" className="cta cta-small project-main-btn graphics-pdf-btn" onClick={(e) => e.stopPropagation()}>
+              OPEN
             </a>
           )}
-          {item.type === 'pdf' && (
-            <a href={item.src} target="_blank" rel="noopener noreferrer" className="cta cta-small project-main-btn graphics-pdf-btn">
-              Open PDF
+          {item.type === 'link' && (
+            <a href={item.href} target="_blank" rel="noopener noreferrer" className="cta cta-small project-main-btn graphics-pdf-btn" onClick={(e) => e.stopPropagation()}>
+              OPEN
             </a>
           )}
         </div>
@@ -174,18 +171,12 @@ export default function Graphics() {
                 <span className="graphics-collection-count">{springBanquetItems.length} items</span>
               </div>
             </div>
-            <div className="graphics-body">
-              <h3>{springBanquetCollection.title}</h3>
-              <div className="graphics-actions">
-                <button className="graphics-open-btn" onClick={() => setActiveCollection(springBanquetCollection)} aria-label="Open Spring Banquet collection" title="Open collection">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <ellipse cx="12" cy="12" rx="9" ry="5.8" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                    <circle cx="12" cy="12" r="3.9" fill="currentColor" />
-                    <circle cx="13.4" cy="10.7" r="1" fill="#fff" />
-                  </svg>
-                </button>
+              <div className="graphics-body">
+                <h3>{springBanquetCollection.title}</h3>
+                <div className="graphics-actions">
+                  {/* Collection opens by clicking the card itself */}
+                </div>
               </div>
-            </div>
           </article>
 
           {displayItems.map((item, index) => renderCard(item, index + 1))}
@@ -207,10 +198,16 @@ export default function Graphics() {
                 </button>
               </header>
               <div className="graphics-modal-content">
-                {activeGraphic.type === 'image' ? (
+                {activeGraphic.type === 'image' && (
                   <img src={activeGraphic.src} alt={activeGraphic.alt} className="graphics-modal-image" />
-                ) : (
+                )}
+                {activeGraphic.type === 'pdf' && (
                   <iframe title={activeGraphic.title} src={activeGraphic.src} className="graphics-modal-pdf" />
+                )}
+                {activeGraphic.type === 'video' && (
+                  <div className="graphics-modal-video-wrap">
+                    <iframe title={activeGraphic.title} src={activeGraphic.src} className="graphics-modal-video" allow="autoplay; encrypted-media" allowFullScreen />
+                  </div>
                 )}
               </div>
             </div>
@@ -234,7 +231,7 @@ export default function Graphics() {
               </header>
               <div className="graphics-collection-grid-modal">
                 {activeCollection.items.map((item) => (
-                  <article key={item.title} className={`graphics-card graphics-collection-item ${item.title === 'Spring Banquet Banner' ? 'graphics-card-banner' : ''} ${item.type === 'link' ? 'graphics-card-link' : ''}`} onClick={() => setActiveGraphic(item)}>
+                  <article key={item.title} className={`graphics-card graphics-collection-item ${item.title === 'Spring Banquet Banner' ? 'graphics-card-banner' : ''} ${item.type === 'link' ? 'graphics-card-link' : ''}`} onClick={() => { if (item.type === 'link') { openVideoPlayer(item) } else { setActiveGraphic(item) } }}>
                     <div className={`graphics-media image-frame ${loadedImages[item.title] ? 'image-loaded' : 'image-pending'}`}>
                       {item.type === 'image' && (
                         <img src={item.src} alt={item.alt} className="graphics-image" loading="lazy" onLoad={() => markImageLoaded(item.title)} />
@@ -249,23 +246,14 @@ export default function Graphics() {
                     <div className="graphics-body">
                       <h4>{item.title}</h4>
                       <div className="graphics-actions">
-                        {item.type !== 'link' && (
-                          <button className="graphics-open-btn" onClick={(e) => { e.stopPropagation(); setActiveGraphic(item); }} aria-label={`Open larger view of ${item.title}`} title="Bigger view">
-                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                              <ellipse cx="12" cy="12" rx="9" ry="5.8" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                              <circle cx="12" cy="12" r="3.9" fill="currentColor" />
-                              <circle cx="13.4" cy="10.7" r="1" fill="#fff" />
-                            </svg>
-                          </button>
-                        )}
-                        {item.type === 'link' && (
-                          <a href={item.href} target="_blank" rel="noopener noreferrer" className="cta cta-small project-main-btn graphics-link-btn" onClick={(e) => e.stopPropagation()}>
-                            Watch Video
-                          </a>
-                        )}
                         {item.type === 'pdf' && (
                           <a href={item.src} target="_blank" rel="noopener noreferrer" className="cta cta-small project-main-btn graphics-pdf-btn" onClick={(e) => e.stopPropagation()}>
-                            Open PDF
+                            OPEN
+                          </a>
+                        )}
+                        {item.type === 'link' && (
+                          <a href={item.href} target="_blank" rel="noopener noreferrer" className="cta cta-small project-main-btn graphics-pdf-btn" onClick={(e) => e.stopPropagation()}>
+                            OPEN
                           </a>
                         )}
                       </div>
