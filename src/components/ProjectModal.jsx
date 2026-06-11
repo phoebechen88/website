@@ -6,6 +6,7 @@ export default function ProjectModal({project, onClose}){
   const navigate = useNavigate()
   const [showUnderConstruction, setShowUnderConstruction] = useState(false)
   const hasRepoLink = /^https?:\/\//i.test(project?.repoLink || '')
+  const hasReportLink = /^https?:\/\//i.test(project?.link || '')
   const assetBase = import.meta.env.BASE_URL || '/'
   const imageSrc = project?.image?.startsWith('/')
     ? `${assetBase}${project.image.slice(1)}`
