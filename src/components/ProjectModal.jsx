@@ -82,8 +82,10 @@ export default function ProjectModal({project, onClose}){
             <div className="modal-actions" style={{display:'flex',gap:12,marginTop:8,flexWrap:'wrap'}}>
               {hasRepoLink
                 ? <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="cta cta-small project-modal-btn">Repository</a>
-                : <a href="#" onClick={handlePopupClick} className="cta cta-small project-modal-btn">Repository</a>}
-              {project.link && <a href={project.link} onClick={handlePopupClick} className="cta cta-small project-modal-btn">Report</a>}
+                : <a href="#" onClick={handlePopupClick} className="cta cta-small project-modal-btn btn-disabled-link">Repository</a>}
+              {project.link 
+                ? <a href={project.link} onClick={handlePopupClick} className="cta cta-small project-modal-btn">Report</a>
+                : <a href="#" onClick={handlePopupClick} className="cta cta-small project-modal-btn btn-disabled-link">Report</a>}
               <button onClick={() => {onClose(); navigate(`/projects/${project.id}`)}} className="cta cta-small project-modal-btn" style={{marginLeft:'auto'}}>View Full Project</button>
             </div>
           </div>

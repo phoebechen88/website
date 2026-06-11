@@ -365,7 +365,7 @@ header.site-header{background:transparent;padding:18px 0}
 .modal-close{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;border:none;background:var(--accent-2);color:#fff;font-size:1.1rem;font-weight:700;cursor:pointer;line-height:1;transition:background 0.2s ease, color 0.2s ease;}
 .modal-close:hover,.modal-close:focus-visible{background:var(--accent);color:#fff;}
 
-..project-main-btn,
+.project-main-btn,
 .project-detail-btn,
 .project-modal-btn{
   display:inline-flex;
@@ -383,11 +383,12 @@ header.site-header{background:transparent;padding:18px 0}
   text-transform:uppercase;
   text-decoration:none;
   color:#fff;
+  transition:opacity 0.18s ease,background 0.18s ease,transform 0.18s cubic-bezier(0.2,0.9,0.28,1);
 }
 
 .project-main-btn,
 .project-detail-btn{
-  background:var(--accent-2);
+  background:linear-gradient(135deg,var(--accent-2),#a66a4f);
 }
 
 .project-main-btn:hover,
@@ -396,15 +397,22 @@ header.site-header{background:transparent;padding:18px 0}
 .project-detail-btn:focus-visible,
 .project-modal-btn:hover,
 .project-modal-btn:focus-visible{
-  background:var(--accent-2);
-  color:#fff;
+  transform:translateY(-1px);
   border-color:transparent;
   text-decoration:none;
 }
 
+.project-main-btn:hover,
+.project-main-btn:focus-visible,
+.project-detail-btn:hover,
+.project-detail-btn:focus-visible{
+  background:linear-gradient(135deg,var(--accent-2),#a66a4f);
+  color:#fff;
+}
+
 .project-modal-btn,
 .project-modal-close{
-  background:var(--accent);
+  background:linear-gradient(135deg, #5f7fc6, #4c639d);
   color:#fff;
 }
 
@@ -412,11 +420,22 @@ header.site-header{background:transparent;padding:18px 0}
 .project-modal-btn:focus-visible,
 .project-modal-close:hover,
 .project-modal-close:focus-visible{
-  background:var(--accent);
+  background:linear-gradient(135deg, #5f7fc6, #4c639d);
   color:#fff;
   border-color:transparent;
   text-decoration:none;
-  transform:translateY(-1px);
+}
+
+.btn-disabled-link{
+  opacity:0.5;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+
+.btn-disabled-link:hover,
+.btn-disabled-link:focus-visible{
+  opacity:0.5;
+  transform:none;
 }
 
 .uc-overlay{

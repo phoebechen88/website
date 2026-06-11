@@ -3,7 +3,7 @@ const projects = [
     id: 'proj-8',
     title: 'Voter Turnout Analysis',
     description: 'Analyzed voter turnout trends in Quincy, MA, using a case study and a large voter demographics dataset, to investigate how to incentivize voter participation.',
-    tags: ['Causal Analysis','Policy','Survey Data'],
+    tags: ['XGBoost','Python','Elections'],
     image: '/project-icons/voter-turnout.svg',
     imageAlt: 'Massachusetts map with ballots icon',
     repoLink: '#',

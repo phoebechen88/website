@@ -12,7 +12,7 @@ export default function ProjectDetail(){
   const imageSrc = project?.image?.startsWith('/')
     ? `${assetBase}${project.image.slice(1)}`
     : project?.image
-  const hasDetailedContent = ['proj-1', 'proj-2', 'proj-3', 'proj-4', 'proj-5', 'proj-6'].includes(project?.id)
+  const hasDetailedContent = ['proj-1', 'proj-2', 'proj-3', 'proj-4', 'proj-5', 'proj-6', 'proj-8'].includes(project?.id)
 
   const handlePopupClick = (e) => {
     e.preventDefault()
@@ -335,7 +335,61 @@ export default function ProjectDetail(){
       )
     }
 
-    return null
+    if (project?.id === 'proj-8') {
+      return (
+        <div style={{display:'grid',gap:12}}>
+          <h2>Asymmetric Voter Turnout Across Elections in Quincy, MA</h2>
+
+          <h3>Project Goal</h3>
+          <p>
+            This project developed a machine-learning framework to identify registered voters who may be at risk of not participating in municipal elections and to support more targeted civic outreach before Quincy's 2027 mayoral election. Working with a team and client Dr. Russ Wilcox, I analyzed the gap between participation in high-salience general elections and lower-turnout local elections, with particular attention to residents who vote in general elections but do not consistently participate municipally.
+          </p>
+
+          <h3>Data Preparation</h3>
+          <p>
+            The analysis used an L2 voter file containing 33,315 voter records and 900 original variables. We standardized missing values, removed empty and highly sparse columns, excluded personally identifiable information and potential target leakage, corrected date and age inconsistencies, and created age- and registration-adjusted turnout measures. These adjusted measures accounted for the number of elections in which each voter was actually eligible to participate.
+          </p>
+
+          <h3>Exploratory Analysis</h3>
+          <p>
+            We examined turnout differences across the precincts represented in the supplied data, party registration, age, residential stability, housing characteristics, and general-election voting history. The results highlighted general-election-only voters, younger voters, non-partisan voters, renters, newer residents, and several higher-risk precincts as potentially important outreach groups.
+          </p>
+
+          <h3>Model Development</h3>
+          <p>
+            We compared logistic regression, random forest, gradient boosting, and XGBoost classifiers. We also evaluated an expanded XGBoost model that included prior voting history and eligibility-adjusted turnout measures. The expanded model achieved a ROC-AUC of 0.815, but previous voting behavior dominated its predictions, primarily confirming that voting tends to be habitual.
+          </p>
+
+          <h3>Model Selection</h3>
+          <p>
+            For the final analysis, we selected a reduced XGBoost model using 18 demographic, socioeconomic, political, residential, and geographic predictors. Although it performed slightly below the expanded model, it provided a stronger balance between predictive performance, interpretability, and practical usefulness for civic outreach.
+          </p>
+
+          <h3>Model Performance</h3>
+          <p>
+            The reduced model achieved approximately 0.803 ROC-AUC, 77.7% accuracy, and 89.9% recall for municipal non-voters. Its predicted risk groups also aligned closely with observed behavior: actual non-voting increased from 14.4% among low-risk voters to 89.1% among very-high-risk voters.
+          </p>
+
+          <h3>Key Findings</h3>
+          <p>
+            Feature-importance analysis identified age as the strongest predictor, followed by modeled ethnicity and language grouping, homeownership probability, residential stability, income, household political context, and geography. These results suggest that municipal turnout gaps are connected to both individual characteristics and broader neighborhood or household context.
+          </p>
+
+          <h3>Practical Application</h3>
+          <p>
+            The final model is best understood as an outreach-prioritization tool rather than a causal explanation of voting behavior. It can help identify where municipal participation gaps are concentrated and which voter groups may benefit from additional engagement, but it cannot determine why a specific person did not vote or which intervention would persuade them.
+          </p>
+
+          <h3>Recommended Next Steps</h3>
+          <p>
+            Future work should test issue-based, multilingual, and precinct-level outreach through randomized pilot programs. Additional improvements would include obtaining individual-level 2025 turnout data, expanding the analysis to all Quincy precincts, and evaluating model accuracy and calibration across demographic groups.
+          </p>
+
+          <h3>Tools</h3>
+          <p>Python, XGBoost, machine learning, causal inference, data analysis</p>
+        </div>
+      )
+    }
   }
 
   if(!project){
@@ -366,8 +420,8 @@ export default function ProjectDetail(){
             <div className="link-group">
               {hasRepoLink
                 ? <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="cta cta-small project-detail-btn">Repository</a>
-                : <a href="#" onClick={handlePopupClick} className="cta cta-small project-detail-btn">Repository</a>}
-              <a href={project.link||'#'} onClick={handlePopupClick} className="cta cta-small project-detail-btn">Report</a>
+                : <a href="#" onClick={handlePopupClick} className="cta cta-small project-detail-btn btn-disabled-link">Repository</a>}
+              <a href={project.link||'#'} onClick={handlePopupClick} className={`cta cta-small project-detail-btn ${project.link ? '' : 'btn-disabled-link'}`}>Report</a>
             </div>
             <Link to="/projects" className="cta cta-small project-detail-btn">Back</Link>
           </div>
