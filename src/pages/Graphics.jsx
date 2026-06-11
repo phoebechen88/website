@@ -18,6 +18,7 @@ import slide97 from '../../Graphics/Slide 97.png'
 import slide202 from '../../Graphics/Spring Banquet Slide 202.png'
 import springRetreatBookletPdf from '../../Graphics/Spring Retreat Booklet.pdf'
 import banquetProgramPdf from '../../Graphics/Spring Banquet Program.pdf'
+import photographyImage from '../../Photography.jpg'
 
 const graphicItems = [
   { type: 'image', category: 'santa-monica', title: 'Santa Monica Evangelism', src: santaMonicaEvangelism, alt: 'Santa Monica Evangelism event graphic' },
@@ -157,11 +158,23 @@ export default function Graphics() {
   return (
     <section>
       <div className="container">
-        <h2>Graphics</h2>
-        <p className="muted">
-          Outside of data science, I love visual storytelling through graphic design. Here are a few posters,
-          banners, and layouts I have created for campus events. Scroll through to check out my hobby.
-        </p>
+        <div className="graphics-intro-box">
+          <h2>Graphics</h2>
+          <div className="graphics-intro-row">
+            <div className="graphics-hero-copy">
+              <p className="muted">
+                Outside of data science, I love visual storytelling through graphic design. Here are a few posters,
+                banners, and layouts I have created for campus events.
+              </p>
+              <p className="muted"><em>Scroll through to check out my hobby.</em></p>
+            </div>
+            <div className="graphics-banner image-frame image-loaded">
+              <div className="graphics-banner-inner">
+                <img src={photographyImage} alt="Photography banner" />
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div className="graphics-grid" ref={gridRef} aria-label="Graphic design gallery">
           <article className="graphics-card fade-item graphics-collection-card" style={{ transitionDelay: '0ms' }} onClick={() => setActiveCollection(springBanquetCollection)}>

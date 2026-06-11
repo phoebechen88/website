@@ -5,5 +5,6 @@ const repoName = process.env.GITHUB_REPOSITORY
   : ''
 
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS && repoName ? `/${repoName}/` : '/'
+  base: process.env.GITHUB_ACTIONS && repoName ? `/${repoName}/` : '/',
+  assetsInclude: ['**/*.JPG']
 })

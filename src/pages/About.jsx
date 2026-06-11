@@ -5,7 +5,7 @@ export default function About(){
   const [zionLoaded, setZionLoaded] = useState(false)
 
   return (
-    <section className="section-card">
+    <section className="section-card no-shadow">
       <div className="container two-col">
         <h2>About</h2>
         <div className={`about-image image-frame ${zionLoaded ? 'image-loaded' : 'image-pending'}`}>
@@ -79,6 +79,12 @@ export default function About(){
             <li>Data Cleaning and Preprocessing</li>
             <li>Data Visualization</li>
             <li>Reproducible Reporting</li>
+          </ul>
+
+          <h4>Design + Media</h4>
+          <ul className="skills-grid">
+            <li><strong>Tools:</strong> Figma, Adobe Illustrator, Adobe Lightroom, Adobe Photoshop, Canva, Clip Studio Paint, CapCut</li>
+            <li><strong>Skills:</strong> Print design, event branding, promotional graphics, photography, photo editing, video editing, presentation design</li>
           </ul>
 
           <h4>Languages</h4>
