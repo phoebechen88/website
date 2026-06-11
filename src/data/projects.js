@@ -6,7 +6,7 @@ const projects = [
     tags: ['XGBoost','Python','Elections'],
     image: '/project-icons/voter-turnout.svg',
     imageAlt: 'Massachusetts map with ballots icon',
-    repoLink: '#',
+    repoLink: 'https://github.com/phoebechen88/Voter-Turnout-Analysis',
     link: '#'
   },
   {

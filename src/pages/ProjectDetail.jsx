@@ -8,6 +8,7 @@ export default function ProjectDetail(){
   const project = projects.find((p)=>p.id===id)
   const [showUnderConstruction, setShowUnderConstruction] = React.useState(false)
   const hasRepoLink = /^https?:\/\//i.test(project?.repoLink || '')
+  const hasReportLink = /^https?:\/\//i.test(project?.link || '')
   const assetBase = import.meta.env.BASE_URL || '/'
   const imageSrc = project?.image?.startsWith('/')
     ? `${assetBase}${project.image.slice(1)}`
@@ -421,7 +422,9 @@ export default function ProjectDetail(){
               {hasRepoLink
                 ? <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="cta cta-small project-detail-btn">Repository</a>
                 : <a href="#" onClick={handlePopupClick} className="cta cta-small project-detail-btn btn-disabled-link">Repository</a>}
-              <a href={project.link||'#'} onClick={handlePopupClick} className={`cta cta-small project-detail-btn ${project.link ? '' : 'btn-disabled-link'}`}>Report</a>
+              {hasReportLink
+                ? <a href={project.link} target="_blank" rel="noopener noreferrer" className="cta cta-small project-detail-btn">Report</a>
+                : <a href="#" onClick={handlePopupClick} className="cta cta-small project-detail-btn btn-disabled-link">Report</a>}
             </div>
             <Link to="/projects" className="cta cta-small project-detail-btn">Back</Link>
           </div>

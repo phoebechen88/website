@@ -375,7 +375,8 @@ header.site-header{background:transparent;padding:18px 0}
   min-width:70px;
   min-height:30px;
   border-radius:999px;
-  border:2px solid transparent;
+  border:0;
+  outline:0;
   font-family:'Playfair Display', 'Merriweather', serif;
   font-weight:700;
   font-size:0.8rem;
@@ -398,7 +399,7 @@ header.site-header{background:transparent;padding:18px 0}
 .project-modal-btn:hover,
 .project-modal-btn:focus-visible{
   transform:translateY(-1px);
-  border-color:transparent;
+  outline:0;
   text-decoration:none;
 }
 
@@ -422,21 +423,21 @@ header.site-header{background:transparent;padding:18px 0}
 .project-modal-close:focus-visible{
   background:linear-gradient(135deg, #5f7fc6, #4c639d);
   color:#fff;
-  border-color:transparent;
+  outline:0;
   text-decoration:none;
 }
 
 .btn-disabled-link{
-  opacity:0.5;
-  cursor:not-allowed;
-  pointer-events:none;
+  opacity:0.55;
+  cursor:pointer;
 }
 
 .btn-disabled-link:hover,
 .btn-disabled-link:focus-visible{
-  opacity:0.5;
+  opacity:0.55;
   transform:none;
 }
+
 
 .uc-overlay{
   position:fixed;
